@@ -35,6 +35,5 @@ class UserListViewModel @Inject constructor(
     }
 
     fun goToUserDetail(id : String) {
-        navigate(UserListFragmentDirections.actionUserlistToNavGraphUserDetail(id.toLong()))
     }
 }

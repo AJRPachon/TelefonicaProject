@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup, GoogleIndexingWarning">
 
-        <activity android:name="es.ajrpachon.domain.common.NavHostActivity"
+        <activity android:name="es.ajrpachon.telefonicaproject.NavHostActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true">

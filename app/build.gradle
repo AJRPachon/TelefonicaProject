@@ -1,5 +1,4 @@
 import es.ajrpachon.android.dependencies.Dependencies
-import es.ajrpachon.android.dependencies.Modules
 import es.ajrpachon.android.dependencies.Plugins
 
 apply plugin: Plugins.androidApplication
@@ -26,6 +25,7 @@ dependencies {
 
     //DATA
     implementation project(path: ':data')
+    implementation project(path: ':ui')
 
 }
 

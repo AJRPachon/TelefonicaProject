@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
-import es.ajrpachon.TelefonicaProject.R
 import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
 import es.ajrpachon.domain.common.util.AsyncResult
 import es.ajrpachon.ui.base.BaseFragment
@@ -14,11 +13,10 @@ import es.ajrpachon.ui.base.BaseViewModel
 import es.ajrpachon.ui.userlist.adapter.UserListAdapter
 import es.ajrpachon.ui.userlist.viewmodel.UserListViewModel
 
-
 @AndroidEntryPoint
 class UserListFragment : BaseFragment() {
 
-    private val userListVM: UserListViewModel by viewModelBinder(R.id.nav_graph__user_list)
+    private val userListVM: UserListViewModel by viewModelBinder()
 
     private var binding: FragmentUserListBinding? = null
 
@@ -37,6 +35,7 @@ class UserListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.userListFragmentList?.adapter = userListAdapter
         configureObservers()
         configureListeners()
     }
@@ -83,10 +82,8 @@ class UserListFragment : BaseFragment() {
 
 private fun FragmentUserListBinding.showLoading(show: Boolean) {
     if (show) {
-        userListFragmentList.visibility = View.GONE
         userListProgressBarLoading.visibility = View.VISIBLE
     } else {
-        userListFragmentList.visibility = View.VISIBLE
         userListProgressBarLoading.visibility = View.GONE
     }
 }

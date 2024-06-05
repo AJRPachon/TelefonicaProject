@@ -18,7 +18,7 @@ class UserDetailFragment  : BaseFragment() {
 
     //private val args:  by navArgs()
 
-    private val userDetailVM: UserDetailViewModel by viewModelBinder(R.id.nav_graph__user_detail)
+    private val userDetailVM: UserDetailViewModel by viewModelBinder()
 
     private var binding: FragmentUserDetailBinding? = null
 

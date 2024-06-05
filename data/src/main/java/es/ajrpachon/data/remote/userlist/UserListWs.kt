@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface UserListWs {
 
-    @GET("?page={page}&results=10&seed=abc")
-    suspend fun getUserList(@Path("page") page: Int): UserRootListDto
+    @GET("?page=1&results=10&seed=abc")
+    suspend fun getUserList(): UserRootListDto
 }

@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import es.ajrpachon.TelefonicaProject.databinding.UserListRowUserBinding
 import es.ajrpachon.domain.common.models.user.UserBo
 import es.ajrpachon.domain.common.util.utils.getSecureUrl
+import java.util.Locale
 
 class UserListAdapter(
     private val callback: (String) -> Unit
@@ -40,6 +41,14 @@ class UserListAdapter(
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
                     .into(userListImgUserPicture)
+
+                userListLblUserName.text = user.userName?.firstName+ " " + user.userName?.lastName
+
+                userListLblGender.text = user.gender?.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+
+                userListLblCityLocation.text = user.location?.city
+
+                userListLblCountryLocation.text = user.location?.country
 
                 this.userListRowContainer.setOnClickListener {
                     callback(user.id ?: "")

@@ -8,7 +8,7 @@ class UserListRemoteDataSourceImpl(
     private val userListWs: UserListWs
 ) : UserListRemoteDataSource {
     override suspend fun getUserList(page: Int): List<UserBo> {
-        return userListWs.getUserList(page).results.map { it.toBo() }
+        return userListWs.getUserList().results.map { it.toBo() }
     }
 
 }
