@@ -1,6 +1,0 @@
-apply from: "$rootDir/configuration__feature_module.gradle"
-apply plugin: 'org.jetbrains.kotlin.android'
-
-android {
-    namespace "es.ajrpachon.TelefonicaProject"
-}

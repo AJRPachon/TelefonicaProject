@@ -1,0 +1,18 @@
+import es.ajrpachon.android.dependencies.Modules
+
+apply from: "$rootDir/configuration__feature_module.gradle"
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace "es.ajrpachon.TelefonicaProject"
+}
+
+
+dependencies {
+    implementation es.ajrpachon.android.dependencies.Dependencies.Retrofit.core
+    implementation es.ajrpachon.android.dependencies.Dependencies.Retrofit.moshiConverter
+    implementation es.ajrpachon.android.dependencies.Dependencies.Retrofit.moshi
+    kapt es.ajrpachon.android.dependencies.Dependencies.Retrofit.moshiKotlinCodegen
+    implementation es.ajrpachon.android.dependencies.Dependencies.OkHttp.httpLoggingInterceptor
+}
+

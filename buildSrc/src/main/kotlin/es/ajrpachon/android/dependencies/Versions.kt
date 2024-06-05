@@ -8,8 +8,8 @@ object Versions {
     }
 
     object Dagger {
-        //const val hilt = "2.46.1"
-        const val hilt = "2.44.2"
+        const val hilt = "2.46.1"
+        //const val hilt = "2.44.2"
         const val hiltNavigation = "1.0.0"
     }
 
@@ -27,8 +27,8 @@ object Versions {
 
     object Kotlin {
         const val coroutines = "1.6.4"
-        const val kotlin = "1.8.0"
-        //const val kotlin = "1.7.21"
+        //const val kotlin = "1.8.0"
+        const val kotlin = "1.7.21"
         const val ktx = "1.9.0"
     }
 

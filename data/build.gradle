@@ -1,30 +1,29 @@
 import es.ajrpachon.android.dependencies.Dependencies
-import es.ajrpachon.android.dependencies.Modules
 import es.ajrpachon.android.dependencies.Plugins
 
-apply plugin: Plugins.androidApplication
+apply plugin: Plugins.androidlibrary
 apply from: "$rootDir/base__kotlin_android.gradle"
-apply from: "$rootDir/base__feature.gradle"
-apply from: "$rootDir/base__common_dependencies.gradle"
-apply from: "$rootDir/gradle/projectDependencyGraph.gradle"
 
 android {
     namespace "es.ajrpachon.TelefonicaProject"
 }
 
-
 dependencies {
 
-    //API
+    implementation project(path: ':domain')
+
+    //LOCAL
+    kapt Dependencies.Androidx.roomCompiler
+    api Dependencies.Androidx.room
+    implementation Dependencies.Androidx.roomKtx
+
+    //REMOTE
     implementation Dependencies.Retrofit.core
+    implementation Dependencies.Retrofit.moshiConverter
     implementation Dependencies.Retrofit.moshi
+    kapt Dependencies.Retrofit.moshiKotlinCodegen
     implementation Dependencies.OkHttp.httpLoggingInterceptor
 
-    //NAVIGATION
-    implementation project(Modules.navigation)
-
-    //DATA
-    implementation project(path: ':data')
+    implementation Dependencies.Logging.slf4j
 
 }
-
