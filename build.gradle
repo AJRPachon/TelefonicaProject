@@ -1,0 +1,32 @@
+import es.ajrpachon.android.dependencies.Classpaths
+
+buildscript {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath Classpaths.gradlePlugin
+        classpath Classpaths.kotlinGradlePlugin
+        classpath Classpaths.navigationSafeArgs
+        classpath Classpaths.hiltGradlePlugin
+        classpath libs.kotlin.gradle.plugin
+    }
+}
+
+allprojects {
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+
+tasks.register('clean', Delete) {
+    delete layout.buildDirectory
+}

@@ -1,0 +1,88 @@
+import es.ajrpachon.android.AppConfig
+import es.ajrpachon.android.dependencies.Dependencies
+import es.ajrpachon.android.dependencies.Plugins
+
+apply plugin: Plugins.kotlinAndroid
+apply plugin: Plugins.hilt
+apply plugin: Plugins.kotlinApt
+
+android {
+    flavorDimensions "default"
+    def appname = "TelefonicaProject"
+
+    compileSdkVersion AppConfig.compileSdkVersion
+    defaultConfig {
+        resValue "string", "app_name_dev", "DEV" + appname
+        resValue "string", "app_name_pre", "PRE" + appname
+        resValue "string", "app_name_pro", "PRO"
+
+        minSdkVersion AppConfig.minSdkVersion
+        targetSdkVersion AppConfig.targetSdkVersion
+        versionName AppConfig.versionName
+        versionCode AppConfig.versionCode
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "@string/app_name_dev"
+        }
+        preproduction {
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "@string/app_name_pre"
+        }
+        release {
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            resValue "string", "app_name", "@string/app_name_pro"
+        }
+    }
+
+    tasks.register('appVersion') {
+        doLast {
+            print ln versionNameFormated +"_" + verionCodeFormated
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    kapt {
+        correctErrorTypes true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+
+    //KOTLIN
+    implementation Dependencies.Kotlin.coroutineAndroid
+    implementation Dependencies.Kotlin.ktxCore
+
+    //DAGGER
+    implementation Dependencies.Dagger.androidSupport
+    kapt Dependencies.Dagger.androidCompiler
+
+    implementation Dependencies.Dagger.hiltAndroid
+    implementation Dependencies.Dagger.hiltNavigation
+    kapt Dependencies.Dagger.hiltCompiler
+
+    //LIVEDATA
+    implementation Dependencies.Androidx.lifecycleSavedState
+    implementation Dependencies.Androidx.liveDataKtxExtensions
+
+    //GLIDE
+    implementation Dependencies.Glide.glide
+    implementation Dependencies.Glide.glideAnnotation
+    kapt Dependencies.Glide.glideCompiler
+}

@@ -1,0 +1,14 @@
+import es.ajrpachon.android.dependencies.Plugins
+import es.ajrpachon.android.dependencies.Dependencies
+
+apply plugin: Plugins.kotlin
+apply plugin: Plugins.kotlinApt
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+    implementation Dependencies.Dagger.hiltCore
+    kapt Dependencies.Dagger.hiltCompiler
+}

@@ -1,0 +1,18 @@
+import es.ajrpachon.android.dependencies.Dependencies
+
+dependencies {
+
+    //KOTLIN
+    implementation Dependencies.Kotlin.stdlibjdk8
+    implementation Dependencies.Kotlin.coroutineCore
+
+    //LOGGING
+    implementation Dependencies.Logging.timber
+    implementation Dependencies.Logging.slf4j
+    implementation Dependencies.Logging.slf4jTimber
+
+    //DAGGER
+    implementation Dependencies.Dagger.core
+    kapt Dependencies.Dagger.coreCompiler
+
+}

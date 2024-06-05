@@ -1,0 +1,5 @@
+import es.ajrpachon.android.dependencies.Plugins
+
+apply plugin: Plugins.androidlibrary
+apply from: "$rootDir/base__kotlin_android.gradle"
+apply from: "$rootDir/base__common_dependencies.gradle"

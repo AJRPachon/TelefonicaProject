@@ -1,0 +1,27 @@
+import es.ajrpachon.android.dependencies.Dependencies
+import es.ajrpachon.android.dependencies.Plugins
+
+apply plugin: Plugins.androidlibrary
+apply from: "$rootDir/base__kotlin_android.gradle"
+
+android {
+    namespace "es.ajrpachon.TelefonicaProject"
+}
+
+dependencies {
+
+    //LOCAL
+    kapt Dependencies.Androidx.roomCompiler
+    api Dependencies.Androidx.room
+    implementation Dependencies.Androidx.roomKtx
+
+    //REMOTE
+    implementation Dependencies.Retrofit.core
+    implementation Dependencies.Retrofit.moshiConverter
+    implementation Dependencies.Retrofit.moshi
+    kapt Dependencies.Retrofit.moshiKotlinCodegen
+    implementation Dependencies.OkHttp.httpLoggingInterceptor
+
+    implementation Dependencies.Logging.slf4j
+
+}

@@ -1,0 +1,34 @@
+import es.ajrpachon.android.dependencies.Dependencies
+import es.ajrpachon.android.dependencies.Modules
+import es.ajrpachon.android.dependencies.Plugins
+
+apply plugin: Plugins.androidApplication
+apply from: "$rootDir/base__kotlin_android.gradle"
+apply from: "$rootDir/base__feature.gradle"
+apply from: "$rootDir/base__common_dependencies.gradle"
+apply from: "$rootDir/gradle/projectDependencyGraph.gradle"
+
+android {
+    namespace "es.ajrpachon.TelefonicaProject"
+}
+
+
+dependencies {
+
+    //API
+    implementation Dependencies.Retrofit.core
+    implementation Dependencies.Retrofit.moshi
+    implementation Dependencies.OkHttp.httpLoggingInterceptor
+
+    //NAVIGATION
+    implementation project(Modules.navigation)
+
+    //DATA
+    implementation project(path: ':dataTest')
+
+    //FEATURE MODULES
+    implementation project(Modules.featureUserList)
+    implementation project(Modules.featureUserDetail)
+
+}
+

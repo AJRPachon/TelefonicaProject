@@ -1,0 +1,8 @@
+import es.ajrpachon.android.dependencies.Modules
+
+apply from: "$rootDir/configuration__kotlin_module.gradle"
+
+dependencies {
+    api project(Modules.dataModel)
+    implementation project(Modules.datasource)
+}
