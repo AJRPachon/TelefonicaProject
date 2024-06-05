@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import es.ajrpachon.TelefonicaProject.R
 import es.ajrpachon.TelefonicaProject.databinding.FragmentUserDetailBinding
+import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
 import es.ajrpachon.domain.common.util.AsyncResult
 import es.ajrpachon.ui.base.BaseFragment
 import es.ajrpachon.ui.base.BaseViewModel
@@ -16,7 +17,7 @@ import es.ajrpachon.ui.userdetail.viewmodel.UserDetailViewModel
 @AndroidEntryPoint
 class UserDetailFragment  : BaseFragment() {
 
-    //private val args:  by navArgs()
+    private val args: UserDetailFragmentArgs by navArgs()
 
     private val userDetailVM: UserDetailViewModel by viewModelBinder()
 
@@ -36,27 +37,35 @@ class UserDetailFragment  : BaseFragment() {
     }
 
     private fun configureObservers() {
-//        userDetailVM.requestUserDetail()
-//        userDetailVM.getUserListLiveData().observe(viewLifecycleOwner) { result ->
-//            when (result) {
-//                is AsyncResult.Success -> {
-//                    userListAdapter.submitList(result.data)
-//                    binding?.showLoading(false)
-//                }
-//
-//                is AsyncResult.Error -> {
-//                    binding?.showLoading(false)
-//                }
-//
-//                is AsyncResult.Loading -> {
-//                    binding?.showLoading(true)
-//                }
-//
-//                null -> {
-//                    binding?.showLoading(false)
-//                }
-//            }
-//        }
+        userDetailVM.requestUserDetail(args.id)
+        userDetailVM.getUserDetailLiveData().observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is AsyncResult.Success -> {
+                    binding?.showLoading(false)
+                }
+
+                is AsyncResult.Error -> {
+                    binding?.showLoading(false)
+                }
+
+                is AsyncResult.Loading -> {
+                    binding?.showLoading(true)
+                }
+
+                null -> {
+                    binding?.showLoading(false)
+                }
+            }
+        }
+    }
+
+
+    private fun FragmentUserDetailBinding.showLoading(show: Boolean) {
+        if (show) {
+            userDetailProgressBarLoading.visibility = View.VISIBLE
+        } else {
+            userDetailProgressBarLoading.visibility = View.GONE
+        }
     }
 
     override fun onDestroyView() {

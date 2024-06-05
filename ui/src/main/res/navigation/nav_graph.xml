@@ -14,7 +14,7 @@
             app:exitAnim="@anim/slide_out_left"
             app:popExitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_left"
-            android:id="@+id/userListToUserDetail"
+            android:id="@+id/actionUserListToUserDetail"
             app:destination="@id/navigation_user_detail_fragment" />
     </fragment>
 
