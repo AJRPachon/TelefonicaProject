@@ -50,9 +50,6 @@ android {
         abortOnError false
     }
 
-    kapt {
-        correctErrorTypes true
-    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -60,6 +57,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    hilt {
+        enableAggregatingTask = true
+    }
+
+    kapt {
+        correctErrorTypes true
     }
 }
 

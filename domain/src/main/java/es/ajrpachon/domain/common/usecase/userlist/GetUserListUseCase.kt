@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetUserListUseCase {
 
-    suspend operator fun invoke() : Flow<AsyncResult<List<UserBo>>>
+    suspend operator fun invoke(page : Int) : Flow<AsyncResult<List<UserBo>>>
 
 }
 
@@ -15,8 +15,8 @@ class GetUserListUseCaseImpl(
     private val repository: UserListRepository
 ) : GetUserListUseCase {
 
-    override suspend fun invoke(): Flow<AsyncResult<List<UserBo>>> {
-        return repository.getUserList().flow()
+    override suspend fun invoke(page: Int): Flow<AsyncResult<List<UserBo>>> {
+        return repository.getUserList(page).flow()
     }
 
 }

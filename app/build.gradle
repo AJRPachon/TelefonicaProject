@@ -10,6 +10,10 @@ apply from: "$rootDir/gradle/projectDependencyGraph.gradle"
 
 android {
     namespace "es.ajrpachon.TelefonicaProject"
+
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 
@@ -19,9 +23,6 @@ dependencies {
     implementation Dependencies.Retrofit.core
     implementation Dependencies.Retrofit.moshi
     implementation Dependencies.OkHttp.httpLoggingInterceptor
-
-    //NAVIGATION
-    implementation project(Modules.navigation)
 
     //DATA
     implementation project(path: ':data')

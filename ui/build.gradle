@@ -6,6 +6,8 @@ android {
 }
 
 dependencies {
+    implementation(es.ajrpachon.android.dependencies.Dependencies.Androidx.navigation)
+    implementation(es.ajrpachon.android.dependencies.Dependencies.Androidx.navigationFragment)
 
     implementation project(':domain')
 }

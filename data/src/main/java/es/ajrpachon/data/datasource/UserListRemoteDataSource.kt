@@ -4,5 +4,5 @@ import es.ajrpachon.domain.common.models.user.UserBo
 
 interface UserListRemoteDataSource {
 
-    suspend fun getUserList(): List<UserBo>
+    suspend fun getUserList(page: Int): List<UserBo>
 }

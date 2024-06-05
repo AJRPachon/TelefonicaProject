@@ -12,8 +12,6 @@ android {
 
 dependencies {
 
-    implementation project(Modules.navigation)
-
     //ANDROID
     implementation Dependencies.Androidx.appcompat
     implementation Dependencies.Androidx.constraintLayout

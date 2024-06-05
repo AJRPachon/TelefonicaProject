@@ -19,14 +19,17 @@ class UserListViewModel @Inject constructor(
     private val dispatchers: AppDispatchers
 ) : BaseViewModel() {
 
+    private var currentPage = 1
+
     private var userListLiveData = MutableSourceLiveData<AsyncResult<List<UserBo>>>(dispatchers)
 
     fun getUserListLiveData() = userListLiveData.liveData()
 
     fun requestUserList() {
+        currentPage++
         viewModelScope.launch(dispatchers.io) {
             userListLiveData.changeSource(
-                getUserListUseCase.invoke().asLiveData(coroutineContext)
+                getUserListUseCase.invoke(currentPage).asLiveData(coroutineContext)
             )
         }
     }

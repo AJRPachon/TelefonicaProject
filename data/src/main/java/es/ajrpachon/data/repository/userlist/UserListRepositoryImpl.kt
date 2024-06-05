@@ -13,10 +13,10 @@ internal class UserListRepositoryImpl(
     private val appDispatchers: AppDispatchers
 ): UserListRepository {
 
-    override suspend fun getUserList(): RepositoryResponse<List<UserBo>> {
+    override suspend fun getUserList(page : Int): RepositoryResponse<List<UserBo>> {
         return object : RemoteResponse<List<UserBo>>(appDispatchers) {
             override suspend fun requestRemoteCall(): List<UserBo> {
-                return remote.getUserList()
+                return remote.getUserList(page)
             }
         }.build()
     }

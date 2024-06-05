@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/userListFragment"
         android:name="es.ajrpachon.ui.userlist.fragment.UserListFragment"
-        android:label="Onboarding"
+        android:label="UserListFragment"
         tools:layout="@layout/fragment__user_list">
 
         <action

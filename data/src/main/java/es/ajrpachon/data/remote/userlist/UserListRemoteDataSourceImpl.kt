@@ -7,8 +7,8 @@ import es.ajrpachon.domain.common.models.user.UserBo
 class UserListRemoteDataSourceImpl(
     private val userListWs: UserListWs
 ) : UserListRemoteDataSource {
-    override suspend fun getUserList(): List<UserBo> {
-        return userListWs.getUserList().results.map { it.toBo() }
+    override suspend fun getUserList(page: Int): List<UserBo> {
+        return userListWs.getUserList(page).results.map { it.toBo() }
     }
 
 }

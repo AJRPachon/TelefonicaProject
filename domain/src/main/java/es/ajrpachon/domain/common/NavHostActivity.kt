@@ -1,4 +1,4 @@
-package es.ajrpachon.telefonicaproject
+package es.ajrpachon.domain.common
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

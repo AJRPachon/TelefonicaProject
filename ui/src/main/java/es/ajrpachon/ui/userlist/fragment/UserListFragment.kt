@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import es.ajrpachon.TelefonicaProject.R
 import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
@@ -22,14 +23,13 @@ class UserListFragment : BaseFragment() {
     private var binding: FragmentUserListBinding? = null
 
     private val userListAdapter by lazy {
-        UserListAdapter{
-            userListVM.goToUserDetail(it )
+        UserListAdapter {
+            userListVM.goToUserDetail(it)
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUserListBinding.inflate(inflater, container, false)
         return binding?.root
@@ -38,7 +38,9 @@ class UserListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureObservers()
+        configureListeners()
     }
+
 
     private fun configureObservers() {
         userListVM.requestUserList()
@@ -46,26 +48,55 @@ class UserListFragment : BaseFragment() {
             when (result) {
                 is AsyncResult.Success -> {
                     userListAdapter.submitList(result.data)
+                    binding?.showLoading(false)
                 }
 
                 is AsyncResult.Error -> {
-
+                    binding?.showLoading(false)
                 }
 
                 is AsyncResult.Loading -> {
-
+                    binding?.showLoading(true)
                 }
 
-                null -> TODO()
+                null -> {
+                    binding?.showLoading(false)
+                }
             }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
+    private fun configureListeners() {
+        binding?.let {
+            with(it) {
+                userListFragmentList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                        if (!recyclerView.canScrollVertically(6)) {
+                            userListVM.requestUserList()
+                        }
+                    }
+                })
+            }
+        }
     }
 
-    override fun getViewModel() = userListVM as BaseViewModel
+
+private fun FragmentUserListBinding.showLoading(show: Boolean) {
+    if (show) {
+        userListFragmentList.visibility = View.GONE
+        userListProgressBarLoading.visibility = View.VISIBLE
+    } else {
+        userListFragmentList.visibility = View.VISIBLE
+        userListProgressBarLoading.visibility = View.GONE
+    }
+}
+
+
+override fun onDestroyView() {
+    super.onDestroyView()
+    binding = null
+}
+
+override fun getViewModel() = userListVM as BaseViewModel
 
 }

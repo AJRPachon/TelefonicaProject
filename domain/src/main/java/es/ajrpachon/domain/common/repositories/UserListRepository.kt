@@ -5,6 +5,6 @@ import es.ajrpachon.domain.common.util.RepositoryResponse
 
 interface UserListRepository {
 
-    suspend fun getUserList() : RepositoryResponse<List<UserBo>>
+    suspend fun getUserList(page : Int) : RepositoryResponse<List<UserBo>>
 
 }
