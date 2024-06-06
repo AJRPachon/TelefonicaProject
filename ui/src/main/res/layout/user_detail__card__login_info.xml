@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/userListRowCardViewUser"
+    android:id="@+id/userDetailRowCardLoginInfo"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="10dp"
@@ -12,57 +12,65 @@
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/userListRowContainer"
+        android:id="@+id/userDetailRowContainer"
+        android:paddingBottom="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/userListImgUserPicture"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_margin="10dp"
-            android:contentDescription="@string/userListImgUserPicture"
-            tools:src="@drawable/ic_launcher_background"
-            android:src="@drawable/ic_launcher_background"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
-            android:id="@+id/userListLblUserName"
+            android:id="@+id/userDetailRowLblLoginTitle"
             style="@style/user_name_text_style_bold"
             android:layout_marginTop="5dp"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userListImgUserPicture"
-            app:layout_constraintTop_toTopOf="@id/userListImgUserPicture"
-            tools:text="User Name" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:text="@string/login" />
 
         <TextView
-            android:id="@+id/userListLblGender"
+            android:id="@+id/userDetailRowLblEmail"
+            style="@style/user_name_text_style_bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/userDetailRowLblLoginTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/userDetailRowLblEmailValue"
             style="@style/user_name_text_style_normal"
-            app:layout_constraintBottom_toTopOf="@id/userListLblCityLocation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userListImgUserPicture"
-            app:layout_constraintTop_toBottomOf="@id/userListLblUserName"
-            tools:text="Gender" />
+            app:layout_constraintTop_toTopOf="@id/userDetailRowLblEmail"
+            app:layout_constraintStart_toEndOf="@id/userDetailRowLblEmail" />
 
         <TextView
-            android:id="@+id/userListLblCityLocation"
+            android:id="@+id/userDetailRowLblUserName"
+            style="@style/user_name_text_style_bold"
+            app:layout_constraintTop_toBottomOf="@id/userDetailRowLblEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/username" />
+
+        <TextView
+            android:id="@+id/userDetailRowLblUserNameValue"
             style="@style/user_name_text_style_normal"
-            app:layout_constraintBottom_toTopOf="@+id/userListLblCountryLocation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userListImgUserPicture"
-            app:layout_constraintTop_toBottomOf="@id/userListLblGender"
-            tools:text="City" />
+            app:layout_constraintTop_toBottomOf="@id/userDetailRowLblEmail"
+            app:layout_constraintStart_toEndOf="@id/userDetailRowLblUserName"/>
 
         <TextView
-            android:id="@+id/userListLblCountryLocation"
+            android:id="@+id/userDetailRowLblPassword"
+            style="@style/user_name_text_style_bold"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintTop_toBottomOf="@id/userDetailRowLblUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/password" />
+
+        <TextView
+            android:id="@+id/userDetailRowLblPasswordValue"
             style="@style/user_name_text_style_normal"
             android:layout_marginBottom="5dp"
-            app:layout_constraintBottom_toBottomOf="@id/userListImgUserPicture"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userListImgUserPicture"
-            tools:text="Country" />
+            app:layout_constraintTop_toBottomOf="@id/userDetailRowLblUserName"
+            app:layout_constraintStart_toEndOf="@id/userDetailRowLblPassword"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

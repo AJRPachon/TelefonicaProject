@@ -45,8 +45,8 @@ class UserDetailFragment  : BaseFragment() {
         userDetailVM.getUserDetailLiveData().observe(viewLifecycleOwner) { result ->
             when (result) {
                 is AsyncResult.Success -> {
-                    binding?.showLoading(false)
                     bindResultData(result.data)
+                    binding?.showLoading(false)
                 }
 
                 is AsyncResult.Error -> {
@@ -81,6 +81,13 @@ class UserDetailFragment  : BaseFragment() {
                     .append(". ")
                     .append(user?.userName?.firstName ?: "" )
                     .append(" ").append(user?.userName?.lastName ?: "")
+
+                with(userDetailCardLoginInfo) {
+                    userDetailRowLblEmailValue.text = user?.email
+                    userDetailRowLblUserNameValue.text = user?.login?.username
+                    userDetailRowLblPasswordValue.text = user?.login?.password
+                }
+
             }
         }
     }
