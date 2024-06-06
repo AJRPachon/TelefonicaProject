@@ -106,6 +106,6 @@ class UserDetailFragment  : BaseFragment() {
         binding = null
     }
 
-    override fun getViewModel() = userDetailVM as BaseViewModel
+    override fun getViewModel() : BaseViewModel = userDetailVM
 
 }

@@ -6,9 +6,10 @@ import es.ajrpachon.domain.common.repositories.UserListRepository
 import es.ajrpachon.domain.common.usecase.dispatchers.AppDispatchers
 import es.ajrpachon.domain.common.util.RemoteResponse
 import es.ajrpachon.domain.common.util.RepositoryResponse
+import javax.inject.Inject
 
 
-internal class UserListRepositoryImpl(
+internal class UserListRepositoryImpl @Inject constructor(
     private val remote: UserListRemoteDataSource,
     private val appDispatchers: AppDispatchers
 ): UserListRepository {

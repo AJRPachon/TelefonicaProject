@@ -5,18 +5,10 @@ import es.ajrpachon.domain.common.repositories.UserListRepository
 import es.ajrpachon.domain.common.util.AsyncResult
 import kotlinx.coroutines.flow.Flow
 
-interface GetUserListUseCase {
-
-    suspend operator fun invoke(page : Int) : Flow<AsyncResult<List<UserBo>>>
-
-}
-
-class GetUserListUseCaseImpl(
+class GetUserListUseCase(
     private val repository: UserListRepository
-) : GetUserListUseCase {
-
-    override suspend fun invoke(page: Int): Flow<AsyncResult<List<UserBo>>> {
+) {
+    suspend fun invoke(page: Int): Flow<AsyncResult<List<UserBo>>> {
         return repository.getUserList(page).flow()
     }
-
 }

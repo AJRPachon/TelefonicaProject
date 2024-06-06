@@ -57,12 +57,12 @@ class RemoteModule(
         retrofit.create(UserDetailWs::class.java)
 
     @Provides
-    fun userListRemoteDataSourceProvider(userListWs: UserListWs) =
-        UserListRemoteDataSourceImpl(userListWs) as UserListRemoteDataSource
+    fun userListRemoteDataSourceProvider(userListWs: UserListWs) : UserListRemoteDataSource =
+        UserListRemoteDataSourceImpl(userListWs)
 
     @Provides
-    fun userDetailRemoteDataSourceProvider(userDetailWs: UserDetailWs) =
-        UserDetailRemoteDataSourceImpl(userDetailWs) as UserDetailRemoteDataSource
+    fun userDetailRemoteDataSourceProvider(userDetailWs: UserDetailWs) : UserDetailRemoteDataSource =
+        UserDetailRemoteDataSourceImpl(userDetailWs)
 
 
 }

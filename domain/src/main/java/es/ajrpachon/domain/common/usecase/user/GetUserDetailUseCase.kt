@@ -4,16 +4,12 @@ import es.ajrpachon.domain.common.models.user.UserBo
 import es.ajrpachon.domain.common.repositories.UserDetailRepository
 import es.ajrpachon.domain.common.util.AsyncResult
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-interface GetUserDetailUseCase {
-    suspend operator fun invoke(uuid: String) : Flow<AsyncResult<UserBo>>
-
-}
-
-class GetUserDetailUseCaseImpl(
+class GetUserDetailUseCase @Inject constructor(
     private val repository: UserDetailRepository
-) : GetUserDetailUseCase {
-    override suspend fun invoke(uuid: String): Flow<AsyncResult<UserBo>> {
+) {
+    suspend fun invoke(uuid: String): Flow<AsyncResult<UserBo>> {
         return repository.getUserDetail(uuid).flow()
     }
 

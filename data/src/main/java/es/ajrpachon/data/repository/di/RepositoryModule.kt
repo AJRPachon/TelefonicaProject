@@ -29,18 +29,18 @@ object RepositoryModule {
     fun userListRepository(
         remote: UserListRemoteDataSource,
         appdispatchers: AppDispatchers
-    ) = UserListRepositoryImpl(
+    ): UserListRepository = UserListRepositoryImpl(
         remote,
         appdispatchers
-    ) as UserListRepository
+    )
 
     @Provides
     fun userDetailRepository(
         remote: UserDetailRemoteDataSource,
         appdispatchers: AppDispatchers
-    ) = UserDetailRepositoryImpl(
+    ): UserDetailRepository = UserDetailRepositoryImpl(
         remote,
         appdispatchers
-    ) as UserDetailRepository
+    )
 
 }

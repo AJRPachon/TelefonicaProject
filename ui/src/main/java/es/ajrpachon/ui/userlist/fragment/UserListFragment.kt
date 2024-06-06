@@ -95,6 +95,6 @@ override fun onDestroyView() {
     binding = null
 }
 
-override fun getViewModel() = userListVM as BaseViewModel
+override fun getViewModel() : BaseViewModel = userListVM
 
 }
