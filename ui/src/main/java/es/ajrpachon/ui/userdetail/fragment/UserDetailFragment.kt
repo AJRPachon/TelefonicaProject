@@ -8,9 +8,9 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import dagger.hilt.android.AndroidEntryPoint
-import es.ajrpachon.TelefonicaProject.R
-import es.ajrpachon.TelefonicaProject.databinding.FragmentUserDetailBinding
-import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
+import es.ajrpachon.telefonicaproject.R
+import es.ajrpachon.telefonicaproject.databinding.FragmentUserDetailBinding
+import es.ajrpachon.telefonicaproject.databinding.FragmentUserListBinding
 import es.ajrpachon.domain.common.models.user.UserBo
 import es.ajrpachon.domain.common.util.AsyncResult
 import es.ajrpachon.domain.common.util.utils.getSecureUrl
@@ -106,6 +106,6 @@ class UserDetailFragment  : BaseFragment() {
         binding = null
     }
 
-    override fun getViewModel() = userDetailVM as BaseViewModel
+    override fun getViewModel() : BaseViewModel = userDetailVM
 
 }

@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.R
 import dagger.hilt.android.AndroidEntryPoint
-import es.ajrpachon.TelefonicaProject.databinding.FragmentNavHostActivityBinding
+import es.ajrpachon.telefonicaproject.databinding.FragmentNavHostActivityBinding
 
 @AndroidEntryPoint
 class NavHostActivity : AppCompatActivity() {

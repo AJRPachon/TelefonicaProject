@@ -8,7 +8,7 @@ apply plugin: Plugins.kotlinApt
 
 android {
     flavorDimensions "default"
-    def appname = "TelefonicaProject"
+    def appname = "telefonicaproject"
 
     compileSdkVersion AppConfig.compileSdkVersion
     defaultConfig {
@@ -49,7 +49,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17

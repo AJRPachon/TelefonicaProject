@@ -5,7 +5,7 @@ apply plugin: Plugins.androidlibrary
 apply from: "$rootDir/base__kotlin_android.gradle"
 
 android {
-    namespace "es.ajrpachon.TelefonicaProject"
+    namespace "es.ajrpachon.telefonicaproject"
 }
 
 dependencies {

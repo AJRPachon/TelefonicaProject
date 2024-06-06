@@ -8,7 +8,7 @@ apply from: "$rootDir/base__common_dependencies.gradle"
 apply from: "$rootDir/gradle/projectDependencyGraph.gradle"
 
 android {
-    namespace "es.ajrpachon.TelefonicaProject"
+    namespace "es.ajrpachon.telefonicaproject"
 
     hilt {
         enableAggregatingTask = true
@@ -26,6 +26,7 @@ dependencies {
     //DATA
     implementation project(path: ':data')
     implementation project(path: ':ui')
+    implementation project(path: ':domain')
 
 }
 
