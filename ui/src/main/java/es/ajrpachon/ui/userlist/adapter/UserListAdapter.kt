@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import es.ajrpachon.TelefonicaProject.databinding.UserListRowUserBinding
+import es.ajrpachon.telefonicaproject.databinding.UserListRowUserBinding
 import es.ajrpachon.domain.common.models.user.UserBo
 import es.ajrpachon.domain.common.util.utils.getSecureUrl
 import java.util.Locale

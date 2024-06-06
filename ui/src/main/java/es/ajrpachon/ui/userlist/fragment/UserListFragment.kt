@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
-import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
+import es.ajrpachon.telefonicaproject.databinding.FragmentUserListBinding
 import es.ajrpachon.domain.common.util.AsyncResult
 import es.ajrpachon.ui.base.BaseFragment
 import es.ajrpachon.ui.base.BaseViewModel

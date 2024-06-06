@@ -8,7 +8,7 @@ apply plugin: Plugins.hilt
 apply plugin: Plugins.kotlinApt
 
 android {
-    namespace "es.ajrpachon.TelefonicaProject"
+    namespace "es.ajrpachon.telefonicaproject"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
