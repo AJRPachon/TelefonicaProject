@@ -5,6 +5,6 @@ import es.ajrpachon.domain.common.util.RepositoryResponse
 
 interface UserDetailRepository {
 
-    suspend fun getUserDetail(id : String) : RepositoryResponse<UserBo>
+    suspend fun getUserDetail(uuid : String) : RepositoryResponse<UserBo>
 
 }

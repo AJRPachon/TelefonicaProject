@@ -12,6 +12,7 @@ import es.ajrpachon.ui.base.BaseFragment
 import es.ajrpachon.ui.base.BaseViewModel
 import es.ajrpachon.ui.userlist.adapter.UserListAdapter
 import es.ajrpachon.ui.userlist.viewmodel.UserListViewModel
+import es.ajrpachon.ui.userlist.viewmodel.UserListViewModel.Companion.PAGE_THRESHOLD
 
 @AndroidEntryPoint
 class UserListFragment : BaseFragment() {
@@ -70,7 +71,7 @@ class UserListFragment : BaseFragment() {
             with(it) {
                 userListFragmentList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                        if (!recyclerView.canScrollVertically(6)) {
+                        if (!recyclerView.canScrollVertically(PAGE_THRESHOLD)) {
                             userListVM.requestUserList()
                         }
                     }

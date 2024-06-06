@@ -5,5 +5,6 @@ data class UserBo (
     var userName: UserNameBo? = UserNameBo(),
     var location: UserLocationBo? = UserLocationBo(),
     var picture: UserPictureBo? = UserPictureBo(),
-    var id : String? = ""
+    var email : String? = "",
+    var login : UserLoginBo? = UserLoginBo()
 )

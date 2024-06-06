@@ -7,8 +7,8 @@ import es.ajrpachon.domain.common.models.user.UserBo
 class UserDetailRemoteDataSourceImpl(
     private val userDetailWs: UserDetailWs
 ) : UserDetailRemoteDataSource {
-    override suspend fun getUserDetail(id: String): UserBo {
-        return userDetailWs.getUserDetail(id).toBo()
+    override suspend fun getUserDetail(uuid: String): UserBo {
+        return userDetailWs.getUserDetail(uuid).results.first().toBo()
     }
 
 

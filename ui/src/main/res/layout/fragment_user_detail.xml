@@ -7,26 +7,13 @@
 
     <ImageView
         android:id="@+id/userDetailImgUserProfilePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ic_launcher_background"
+        tools:src="@drawable/ic_launcher_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/userDetailLblUserTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="end"
-        style="@style/user_name_text_style_bold"
-        app:layout_constraintEnd_toStartOf="@id/userDetailLblUserName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/userDetailLblUserName"
-        tools:text="User Title" />
 
     <TextView
         android:id="@+id/userDetailLblUserName"
@@ -39,19 +26,6 @@
         app:layout_constraintEnd_toEndOf="@+id/userDetailImgUserProfilePicture"
         tools:text="User UserName"/>
 
-    <TextView
-        android:id="@+id/userDetailLblUserLastName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="20dp"
-        style="@style/user_name_text_style_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/userDetailLblUserName"
-        app:layout_constraintTop_toBottomOf="@id/userDetailImgUserProfilePicture"
-        tools:text="User LastName" />
-
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/userDetailProgressBarLoading"
         android:layout_width="wrap_content"
@@ -62,6 +36,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+<!--    <include-->
+<!--        layout="@layout/user_detail__card__login_info"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/userDetailLblUserName"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

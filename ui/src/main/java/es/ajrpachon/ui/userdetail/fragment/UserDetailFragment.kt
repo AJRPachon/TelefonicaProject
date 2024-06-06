@@ -5,11 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import dagger.hilt.android.AndroidEntryPoint
 import es.ajrpachon.TelefonicaProject.R
 import es.ajrpachon.TelefonicaProject.databinding.FragmentUserDetailBinding
 import es.ajrpachon.TelefonicaProject.databinding.FragmentUserListBinding
+import es.ajrpachon.domain.common.models.user.UserBo
 import es.ajrpachon.domain.common.util.AsyncResult
+import es.ajrpachon.domain.common.util.utils.getSecureUrl
 import es.ajrpachon.ui.base.BaseFragment
 import es.ajrpachon.ui.base.BaseViewModel
 import es.ajrpachon.ui.userdetail.viewmodel.UserDetailViewModel
@@ -37,11 +41,12 @@ class UserDetailFragment  : BaseFragment() {
     }
 
     private fun configureObservers() {
-        userDetailVM.requestUserDetail(args.id)
+        userDetailVM.requestUserDetail(args.uuid)
         userDetailVM.getUserDetailLiveData().observe(viewLifecycleOwner) { result ->
             when (result) {
                 is AsyncResult.Success -> {
                     binding?.showLoading(false)
+                    bindResultData(result.data)
                 }
 
                 is AsyncResult.Error -> {
@@ -55,6 +60,27 @@ class UserDetailFragment  : BaseFragment() {
                 null -> {
                     binding?.showLoading(false)
                 }
+            }
+        }
+    }
+
+    private fun bindResultData(user: UserBo?) {
+        binding?.let {
+            with(it) {
+
+                Glide.with(root)
+                    .load(getSecureUrl("${user?.picture?.thumbnail}"))
+                    .error(com.google.android.material.R.drawable.mtrl_ic_error)
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .into(userDetailImgUserProfilePicture)
+
+                userDetailLblUserName.text = StringBuilder()
+                    .append(user?.userName?.title ?: "")
+                    .append(". ")
+                    .append(user?.userName?.firstName ?: "" )
+                    .append(" ").append(user?.userName?.lastName ?: "")
             }
         }
     }

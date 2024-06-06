@@ -33,6 +33,7 @@ class UserListAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: UserBo) {
+
             with(binding) {
                 Glide.with(binding.root)
                     .load(getSecureUrl("${user.picture?.thumbnail}"))
@@ -51,7 +52,7 @@ class UserListAdapter(
                 userListLblCountryLocation.text = user.location?.country
 
                 this.userListRowContainer.setOnClickListener {
-                    callback(user.id ?: "")
+                    callback(user.login?.uuid ?: "")
                 }
             }
         }
@@ -59,7 +60,7 @@ class UserListAdapter(
 
     class UserListCallBack : DiffUtil.ItemCallback<UserBo>() {
         override fun areItemsTheSame(oldItem: UserBo, newItem: UserBo): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.login?.uuid == newItem.login?.uuid
         }
 
         override fun areContentsTheSame(oldItem: UserBo, newItem: UserBo): Boolean {

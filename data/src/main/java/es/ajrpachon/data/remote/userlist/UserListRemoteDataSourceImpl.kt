@@ -8,7 +8,7 @@ class UserListRemoteDataSourceImpl(
     private val userListWs: UserListWs
 ) : UserListRemoteDataSource {
     override suspend fun getUserList(page: Int): List<UserBo> {
-        return userListWs.getUserList().results.map { it.toBo() }
+        return userListWs.getUserList(1, "10", "abc").results.map { it.toBo() } //No funciona bien el paginado
     }
 
 }

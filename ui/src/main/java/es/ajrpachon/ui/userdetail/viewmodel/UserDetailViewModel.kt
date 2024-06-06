@@ -23,10 +23,10 @@ class UserDetailViewModel @Inject constructor(
 
     fun getUserDetailLiveData() = userDetailLiveData.liveData()
 
-    fun requestUserDetail(id : String) {
+    fun requestUserDetail(uuid : String) {
         viewModelScope.launch(dispatchers.io) {
             userDetailLiveData.changeSource(
-                getUserUseCase.invoke(id).asLiveData(coroutineContext)
+                getUserUseCase.invoke(uuid).asLiveData(coroutineContext)
             )
         }
     }

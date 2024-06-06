@@ -11,10 +11,10 @@ internal class UserDetailRepositoryImpl(
     private val remote: UserDetailRemoteDataSource,
     private val appDispatchers: AppDispatchers
 ): UserDetailRepository {
-    override suspend fun getUserDetail(id: String): RepositoryResponse<UserBo> {
+    override suspend fun getUserDetail(uuid: String): RepositoryResponse<UserBo> {
         return object: RemoteResponse<UserBo>(appDispatchers) {
             override suspend fun requestRemoteCall(): UserBo {
-                return remote.getUserDetail(id)
+                return remote.getUserDetail(uuid)
             }
         }.build()
     }

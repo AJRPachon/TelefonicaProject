@@ -19,7 +19,7 @@ class UserListViewModel @Inject constructor(
     private val dispatchers: AppDispatchers
 ) : BaseViewModel() {
 
-    private var currentPage = 1
+    private var currentPage = 0
 
     private var userListLiveData = MutableSourceLiveData<AsyncResult<List<UserBo>>>(dispatchers)
 
@@ -34,7 +34,11 @@ class UserListViewModel @Inject constructor(
         }
     }
 
-    fun goToUserDetail(id : String) {
-        navigate(UserListFragmentDirections.actionUserListToUserDetail(id))
+    fun goToUserDetail(uuid : String) {
+        navigate(UserListFragmentDirections.actionUserListToUserDetail(uuid))
+    }
+
+    companion object {
+        const val PAGE_THRESHOLD = 2
     }
 }

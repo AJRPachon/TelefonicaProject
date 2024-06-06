@@ -23,7 +23,7 @@
         android:name="es.ajrpachon.ui.userdetail.fragment.UserDetailFragment"
         tools:layout="@layout/fragment_user_detail">
         <argument
-            android:name="id"
+            android:name="uuid"
             app:argType="string" />
     </fragment>
 

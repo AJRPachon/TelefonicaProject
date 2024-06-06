@@ -9,5 +9,6 @@ data class UserDto(
     @Json(name = "name") var userNameDto: UserNameDto? = UserNameDto(),
     @Json(name = "location") var userLocationDto: UserLocationDto? = UserLocationDto(),
     @Json(name = "picture") var userPictureDto: UserPictureDto? = UserPictureDto(),
-    @Json(name = "id") var userId: UserIdDto? = UserIdDto()
+    @Json(name = "login") var userLogin: UserLoginDto? = UserLoginDto(),
+    @Json(name = "email") var userEmail: String? = "",
 )
